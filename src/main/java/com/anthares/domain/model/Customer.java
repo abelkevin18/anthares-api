@@ -1,4 +1,4 @@
-package com.anthares.application.model;
+package com.anthares.domain.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

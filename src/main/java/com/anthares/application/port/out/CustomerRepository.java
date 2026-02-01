@@ -1,6 +1,6 @@
 package com.anthares.application.port.out;
 
-import com.anthares.application.model.Customer;
+import com.anthares.domain.model.Customer;
 import java.util.List;
 
 public interface CustomerRepository {

@@ -2,7 +2,7 @@ package com.anthares.application.service;
 
 import com.anthares.application.dto.request.CustomerRequest;
 import com.anthares.application.dto.response.CustomerResponse;
-import com.anthares.application.model.Customer;
+import com.anthares.domain.model.Customer;
 import com.anthares.application.port.in.RegisterCustomerUseCase;
 import com.anthares.application.port.out.CustomerRepository;
 import com.anthares.commons.util.IdGenerator;
