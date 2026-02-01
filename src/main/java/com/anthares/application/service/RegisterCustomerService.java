@@ -2,10 +2,9 @@ package com.anthares.application.service;
 
 import com.anthares.application.dto.request.CustomerRequest;
 import com.anthares.application.dto.response.CustomerResponse;
-import com.anthares.domain.model.Customer;
 import com.anthares.application.port.in.RegisterCustomerUseCase;
 import com.anthares.application.port.out.CustomerRepository;
-import com.anthares.commons.util.IdGenerator;
+import com.anthares.application.service.mapper.CustomerRequestToDomainMapper;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
@@ -16,10 +15,11 @@ import org.springframework.stereotype.Service;
 public class RegisterCustomerService implements RegisterCustomerUseCase {
 
     private final CustomerRepository customerRepository;
+    private final CustomerRequestToDomainMapper customerRequestToDomainMapper;
 
     @Override
     public void registerCustomer(CustomerRequest customerRequest) {
-        customerRepository.save(buildCustomer(customerRequest));
+        customerRepository.save(customerRequestToDomainMapper.fromRequest(customerRequest));
     }
 
     @Override
@@ -41,23 +41,5 @@ public class RegisterCustomerService implements RegisterCustomerUseCase {
                     return customerResponse;
                 })
                 .collect(Collectors.toList());
-    }
-
-    private Customer buildCustomer(CustomerRequest customerRequest) {//@@revisar
-        Customer customer = new Customer();
-        customer.setId(IdGenerator.generateId());
-        customer.setCompanyName(customerRequest.getCompanyName());
-        customer.setGeneralManager(customerRequest.getGeneralManager());
-        customer.setRuc(customerRequest.getRuc());
-        customer.setDni(customerRequest.getDni());
-        customer.setSunatUser(customerRequest.getSunatUser());
-        customer.setSunatPassword(customerRequest.getSunatPassword());
-        customer.setPhoneNumber(customerRequest.getPhoneNumber());
-        customer.setEmail(customerRequest.getEmail());
-        customer.setRegime(customerRequest.getRegime());
-        customer.setRnpPassword(customerRequest.getRnpPassword());
-        customer.setAfpUser(customerRequest.getAfpUser());
-        customer.setAfpPassword(customerRequest.getAfpPassword());
-        return customer;
     }
 }

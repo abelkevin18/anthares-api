@@ -1,4 +1,4 @@
-package com.anthares.infrastructure.adapter.out.persistence.mapper.dto;
+package com.anthares.infrastructure.adapter.in.web.mapper.dto;
 
 import com.anthares.application.dto.response.CustomerResponse;
 import com.anthares.domain.model.Customer;

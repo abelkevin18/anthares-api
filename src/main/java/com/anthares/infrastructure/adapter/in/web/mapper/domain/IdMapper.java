@@ -1,4 +1,4 @@
-package com.anthares.infrastructure.adapter.out.persistence.mapper.domain;
+package com.anthares.infrastructure.adapter.in.web.mapper.domain;
 
 import com.anthares.commons.util.IdGenerator;
 import org.mapstruct.Named;

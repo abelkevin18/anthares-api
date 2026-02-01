@@ -1,4 +1,4 @@
-package com.anthares.infrastructure.database.entity;
+package com.anthares.infrastructure.adapter.out.persistence.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @Entity(name = "Customer")
 @Table(name = "customers")
-public class CustomerDao {
+public class CustomerJpaEntity {
 
     @Id
     private String id;
