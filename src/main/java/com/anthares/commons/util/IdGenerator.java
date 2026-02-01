@@ -1,4 +1,4 @@
-package com.anthares.common.util;
+package com.anthares.commons.util;
 
 import java.util.UUID;
 

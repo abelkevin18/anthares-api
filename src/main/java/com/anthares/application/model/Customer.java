@@ -1,11 +1,14 @@
-package com.anthares.application.dto.request;
+package com.anthares.application.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
+@Setter
 @NoArgsConstructor
-public class CustomerRequest {
+public class Customer {
+    private String id;
     private String companyName;
     private String generalManager;
     private String ruc;

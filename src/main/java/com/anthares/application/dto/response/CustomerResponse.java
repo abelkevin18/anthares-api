@@ -1,20 +1,14 @@
-package com.anthares.domain.model;
+package com.anthares.application.dto.response;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
-@Table(name = "customer")
-public class Customer {
-
-    @Id
+@NoArgsConstructor
+public class CustomerResponse {
     private String id;
-
     private String companyName;
     private String generalManager;
     private String ruc;
@@ -27,5 +21,4 @@ public class Customer {
     private String rnpPassword;
     private String afpUser;
     private String afpPassword;
-
 }
