@@ -31,14 +31,6 @@ public class CustomerPersistenceAdapter implements CustomerRepository {
     }
 
     @Override
-    public List<Customer> findAll() {
-        return jpaCustomerRepository.findAll()
-                .stream()
-                .map(customerDomainToResponseMapper::toDomain)
-                .collect(Collectors.toList());
-    }
-
-    @Override
     public Page<Customer> findAllByQuery(String query, Pageable pageable) {
         if (query == null || query.isBlank()) {
             Page<CustomerJpaEntity> page = jpaCustomerRepository.findAll(pageable);

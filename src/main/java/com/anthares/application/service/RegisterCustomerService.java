@@ -5,10 +5,8 @@ import com.anthares.application.dto.response.CustomerResponse;
 import com.anthares.application.port.in.RegisterCustomerUseCase;
 import com.anthares.application.port.out.CustomerRepository;
 import com.anthares.application.service.mapper.CustomerRequestToDomainMapper;
-import com.anthares.infrastructure.adapter.in.web.mapper.dto.CustomerDomainResponseMapper;
 import com.anthares.domain.model.Customer;
-import java.util.List;
-import java.util.stream.Collectors;
+import com.anthares.infrastructure.adapter.in.web.mapper.dto.CustomerDomainResponseMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -28,15 +26,7 @@ public class RegisterCustomerService implements RegisterCustomerUseCase {
     }
 
     @Override
-    public List<CustomerResponse> getCustomers() {
-        return customerRepository.findAll()
-                .stream()
-                .map(customerDomainResponseMapper::toResponse)
-                .collect(Collectors.toList());
-    }
-
-    @Override
-    public Page<CustomerResponse> searchCustomers(String query, Pageable pageable) {
+    public Page<CustomerResponse> searchCustomersPaginated(String query, Pageable pageable) {
         Page<Customer> page = customerRepository.findAllByQuery(query, pageable);
         return page.map(customerDomainResponseMapper::toResponse);
     }
